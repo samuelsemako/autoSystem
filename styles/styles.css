@@ -1,0 +1,321 @@
+.body-div{
+    width: 100%;
+    background: url(../all-images/images/backgroud.jpg);
+    background-size: cover;
+    position: absolute;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.body-main{
+    width: 60%;
+    box-sizing: border-box;
+    min-height: 300px;
+    background: #fff;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+}
+
+header{
+    width: 100%;
+    min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .header-inner{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: #ccc9c9 1px solid;
+    padding: 10px 0px;
+}
+
+header .header-inner .logo-div{
+    width: 150px;
+}
+
+header .header-inner .logo-div img{
+    width: 100%;
+}
+
+header .header-inner nav ul{
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    gap: 20px;
+}
+
+header .header-inner nav ul li{
+    list-style: none;
+    font-family: sub-title-font;
+    color: var(--sub-body-color);
+}
+
+.body-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    min-height: 200px;
+}
+
+.body-content .search-button{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.body-content .search-button .button-div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.body-content .search-button .button-div .btn{
+    border: none;
+    min-width: 150px;
+    height: 40px;
+    font-family: sub-title-font;
+    font-size: 17px;
+    border-radius: 5px;
+    background: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease-in 0.2s;
+    -moz-transition: all 0.2s ease-in 02s;
+    -webkit-transition: all 0.2s ease-in 0.2s;
+    -ms-transition: all 0.2s ease-in 0.2s;
+    -o-transition: all 0.2s ease-in 0.2s;
+}
+
+
+.body-content.search-button .button-div .btn:hover{
+    opacity: .6;
+}
+
+.body-content .search-button .button-div .close-btn{
+    border: none;
+    min-width: 150px;
+    height: 40px;
+    font-family: sub-title-font;
+    font-size: 17px;
+    border-radius: 5px;
+    background: var(--secondary-color);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease-in 0.2s;
+    -moz-transition: all 0.2s ease-in 02s;
+    -webkit-transition: all 0.2s ease-in 0.2s;
+    -ms-transition: all 0.2s ease-in 0.2s;
+    -o-transition: all 0.2s ease-in 0.2s;
+}
+
+.body-content .search-button .button-div .close-btn:hover{
+    opacity: .6;
+}
+
+.body-content .form-div{
+    width: 90%;
+    display: flex;
+    gap: 40px;
+}
+
+
+.body-content .form-div h1{
+    font-family: title-font;
+    color: var(--primary-color); 
+}
+
+.body-content .form-div form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.body-content .form-div form .button-div{
+    display: flex;
+    gap: 30px;
+}
+
+
+.body-content .form-div form .button-div .btn{
+    border: none;
+    min-width: 150px;
+    height: 40px;
+    font-family: sub-title-font;
+    font-size: 17px;
+    border-radius: 5px;
+    background: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease-in 0.2s;
+    -moz-transition: all 0.2s ease-in 02s;
+    -webkit-transition: all 0.2s ease-in 0.2s;
+    -ms-transition: all 0.2s ease-in 0.2s;
+    -o-transition: all 0.2s ease-in 0.2s;
+}
+
+
+.body-content .form-div form .button-div .btn:hover{
+    opacity: .6;
+}
+
+.body-content .form-div form .button-div .close-btn{
+    border: none;
+    min-width: 150px;
+    height: 40px;
+    font-family: sub-title-font;
+    font-size: 17px;
+    border-radius: 5px;
+    background: var(--secondary-color);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease-in 0.2s;
+    -moz-transition: all 0.2s ease-in 02s;
+    -webkit-transition: all 0.2s ease-in 0.2s;
+    -ms-transition: all 0.2s ease-in 0.2s;
+    -o-transition: all 0.2s ease-in 0.2s;
+}
+
+.body-content .form-div form .button-div .close-btn:hover{
+    opacity: .6;
+}
+
+.body-content .form-div .passport-div {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.body-content .form-div .passport-div h2{
+    font-family: sub-title-font;
+    color: var(--primary-color);
+}
+
+.body-content .form-div .passport-div .image-div{
+    width: 100%;
+    background: #ccc9c9d1;
+    border: #a6a4a4a4 1px solid;
+    border-radius: 7px;
+    height: 220px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.body-content .form-div .passport-div .image-div img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.loanBreakDownDiv {
+    position: absolute;
+    width: 65%;
+    height: 550px;
+    max-height : 300px;
+    border-radius: 5px;
+    background: #fff;
+    max-width: 1200px;
+}
+
+.loanBreakDownDiv .title-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 60px);
+    min-height: 50px;
+    padding: 0px 30px;
+}
+
+
+
+.loanBreakDownDiv .title-div h1 {
+    padding: 0px;
+    margin: 0px;
+    color: #4B69A5;
+    font-size: 20px;
+    font-family: sub-title-font;
+}
+
+.loanBreakDownDiv .title-div .close-btn {
+    border: none;
+    color: #fff;
+    background: #a80101;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: sub-title-font;
+    font-size: 15px;
+}
+
+
+.loanBreakDownDiv .profileTableDiv{
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    height: calc(100% - 70px);
+    overflow: auto;
+}
+
+
+.loanBreakDownDiv .profileTableDiv .profileTable-content{
+    width: 94%;
+}
+
+.loanBreakDownDiv .profileTableDiv .profileTable-content table{
+    width: 100%;
+    text-align: center;
+} 
+
+
+.loanBreakDownDiv .profileTableDiv .profileTable-content table tr th{
+    font-size: 16px;
+    background: #4B69A5;
+    color: #ff7e06; 
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    font-family: body-font;
+    padding: 12px 0px;
+} 
+
+
+.loanBreakDownDiv .profileTableDiv .profileTable-content table tr td {
+    padding: 12px;
+    font-size: 16px;
+    background: #f0efefec;
+    font-family: body-font;
+} 
+
+.loanBreakDownDiv .profileTableDiv .profileTable-content table tr td img{
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+} 
+
+
+
+
+
+/* /////////////Media query */
+@media all and (max-width:890px){
+    .body-main{
+        width: 96%;
+    }
+}
