@@ -30,6 +30,12 @@ if (mysqli_num_rows($query) == 0) {
     goto end;
 }
 
+$userArray = $callclass->_getUserDetails($conn, $userId);
+$fetchArray = json_decode($userArray, true);
+$dbPassport = $fetchArray[0]['passport'];
+
+unlink($userProfilePixPath . $dbPassport);
+
 $row = mysqli_fetch_assoc($query);
 $passport = $row['passport'];
 
@@ -56,4 +62,3 @@ if ($deleteQuery) {
 
 end:
 echo json_encode($response);
-?>

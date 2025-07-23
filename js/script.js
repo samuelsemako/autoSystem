@@ -8,9 +8,9 @@ function _actionModal(action) {
 
 function _registerUser() {
   const fullName = $("#fullName").val().trim();
-  const emailAddress = $("#emailAddress");
+  const emailAddress = $("#emailAddress").val();
   const phoneNumber = $("#phoneNumber").val();
-  const passport = $('#passport')[0].files[0];
+  const passport = $("#passport")[0].files[0];
 
   $("#fullName, #emailAddress, #phoneNumber, #passport").removeClass("issue");
 
@@ -21,17 +21,30 @@ function _registerUser() {
     return;
   }
 
-  const nameRegex = /^[A-Za-z\s]+$/;
-
   if (!emailAddress) {
     $("#emailAddress").addClass("issue");
     _actionAlert("Provide email address to continue", false);
     return;
   }
 
+  if (!/\S+@\S+\.\S+/.test(emailAddress)) {
+    $("#emailAddress").addClass("issue");
+    _actionAlert("USER ERROR! Invalid email format.", false);
+    return;
+  }
+
   if (!phoneNumber) {
     $("#phoneNumber").addClass("issue");
     _actionAlert("Provide phone to continue", false);
+    return;
+  }
+
+
+  if (!passport&& !userId) {
+    /// Only new registrations must upload passport ///
+    $("#passport").addClass("issue");
+    _actionAlert(
+      "USER ERROR! Kindly upload a profile picture to continue", false);
     return;
   }
 

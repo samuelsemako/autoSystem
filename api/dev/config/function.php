@@ -9,6 +9,19 @@ class allClass
         return '[{"no":"'.$no.'"}]';
     }
 
+    function _getUserDetails($conn, $userId){
+        $query=mysqli_query($conn,"SELECT * FROM user_tab WHERE userId='$userId'")or die (mysqli_error($conn));
+        $fetchQuery=mysqli_fetch_array($query);
+        $userId=$fetchQuery['userId'];
+        $fullName=$fetchQuery['fullName'];
+        $emailAddress=$fetchQuery['emailAddress'];
+        $phoneNumber=$fetchQuery['phoneNumber'];
+        $passport=$fetchQuery['passport'];
+        $createdTime=$fetchQuery['createdTime'];
+        $updatedTime=$fetchQuery['updatedTime'];
+        return '[{"userId":"'.$userId.'","fullName":"'.$fullName.'","emailAddress":"'.$emailAddress.'","phoneNumber":"'.$phoneNumber.'","passport":"'.$passport.'","createdTime":"'.$createdTime.'","updatedTime":"'.$updatedTime.'"}]';
+
+    }
 } //end of class
 $callclass = new allClass();
 ?>

@@ -49,7 +49,7 @@ if (!filter_var($emailAddress, FILTER_VALIDATE_EMAIL)) {
     $response = [
         'response' => 104,
         'success' => false,
-        'message' => "INVALID INPUT! Email address is not valid."
+        'message' => "INVALID INPUT! Email address is not valid Sam."
     ];
     goto end;
 }
