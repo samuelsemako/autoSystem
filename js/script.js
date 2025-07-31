@@ -1,3 +1,4 @@
+let issueCount = 0;
 function _actionModal(action) {
   if (action === "open") {
     $("#modal").css("display", "flex");
@@ -8,6 +9,7 @@ function _actionModal(action) {
 
 function _submitUser() {
   try {
+    issueCount = 0;
   const fullName = $("#fullName").val().trim();
   const emailAddress = $("#emailAddress").val();
   const phoneNumber = $("#phoneNumber").val();
@@ -15,33 +17,43 @@ function _submitUser() {
   const userId = $("#searchUser").val(); // Determines if it's update or register
 
   $("#fullName, #emailAddress, #phoneNumber, #passport").removeClass("issue");
+  $('#issue_fullName, #issue_emailAddress, #issue_phoneNumber, #issue_passport').html('');
 
   // === VALIDATIONS ===
 
   if (!fullName) {
     $("#fullName").addClass("issue");
-    _actionAlert("USER ERROR! Kindly provide fullname to continue", false);
+    $('#issue_fullName').html('USER ERROR! Kindy provide full name to continue');
+			issueCount++;
   }
 
   if (!emailAddress) {
     $("#emailAddress").addClass("issue");
-    _actionAlert("Provide email address to continue", false);
-     
+    $('#issue_emailAddress').html('USER ERROR! Kindy provide email address to continue');
+			issueCount++;
+ 
+          
   } else if (!/\S+@\S+\.\S+/.test(emailAddress)) {
     $("#emailAddress").addClass("issue");
-    _actionAlert("USER ERROR! Invalid email format.", false);
+    $('#issue_emailAddress').html('USER ERROR! Input correct email format');
+			issueCount++;
     
   }
 
   if (!phoneNumber) {
     $("#phoneNumber").addClass("issue");
-    _actionAlert("Provide phone number to continue", false);
+    $('#issue_phoneNumber').html('USER ERROR! Input correct phone number');
+			issueCount++;
   }
 
   if (!passport && !userId) {
     $("#passport").addClass("issue");
     _actionAlert("USER ERROR! Kindly upload a profile picture to continue", false);
   }
+
+  if (issueCount>0){
+			return;
+		}
 
   // === FORM DATA ===
   const formData = new FormData();
@@ -76,6 +88,7 @@ function _submitUser() {
       if (success === true) {
         _actionAlert(message, true);
         _clearFunction();
+        _getSelectUser(fieldId)
       } else {
         _actionAlert(message, false);
       }
@@ -270,7 +283,11 @@ function _fetchUserRecords() {
 
 function _clearFunction() {
   $("#fullName, #emailAddress, #phoneNumber").val("");
+  $('#searchUser').val(" ");
   $("#userPixPreview").attr("src", "all-images/images/user.png");
+
+  $('#fullName, #emailAddress, #phoneNumber, #passport').removeClass('issue');
+    $('#issue_fullName, #issue_emailAddress, #issue_phoneNumber, #issue_passport').html('');
 }
 
 function _viewRecords(){

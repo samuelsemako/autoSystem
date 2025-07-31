@@ -50,7 +50,7 @@ if (!in_array(($extension), $allowedExts)) {
     $response = [
         'response' => 111,
         'success' => false,
-        'message' => 'INVALID PICTURE FORMAT! Check the picture format and try again.'
+        'message' => 'ERROR! Input passport to continue'
     ];
     goto end;
 }

@@ -11,9 +11,10 @@
 
 .body-main{
     width: 60%;
+    padding-bottom: 20px;
     box-sizing: border-box;
     min-height: 300px;
-    background: #fff;
+    background: var(--white-color);
     border-radius: 7px;
     display: flex;
     flex-direction: column;
@@ -136,20 +137,20 @@ header .header-inner nav ul li{
     color: var(--primary-color); 
 }
 
-.body-content .form-div form{
+.body-content .form-div .form-back-div{
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.body-content .form-div form .button-div{
+.body-content .form-div .form-back-div .button-div{
     display: flex;
     gap: 30px;
 }
 
 
-.body-content .form-div form .button-div .btn{
+.body-content .form-div .form-back-div .button-div .btn{
     border: none;
     min-width: 150px;
     height: 40px;
@@ -167,11 +168,11 @@ header .header-inner nav ul li{
 }
 
 
-.body-content .form-div form .button-div .btn:hover{
+.body-content .form-div .form-back-div .button-div .btn:hover{
     opacity: .6;
 }
 
-.body-content .form-div form .button-div .close-btn{
+.body-content .form-div .form-back-div .button-div .close-btn{
     border: none;
     min-width: 150px;
     height: 40px;
@@ -188,7 +189,7 @@ header .header-inner nav ul li{
     -o-transition: all 0.2s ease-in 0.2s;
 }
 
-.body-content .form-div form .button-div .close-btn:hover{
+.body-content .form-div .form-back-div .button-div .close-btn:hover{
     opacity: .6;
 }
 
@@ -223,11 +224,11 @@ header .header-inner nav ul li{
 
 .loanBreakDownDiv {
     position: absolute;
-    width: 65%;
+    width: 80%;
     height: 550px;
-    max-height : 300px;
+    min-height : 200px;
     border-radius: 5px;
-    background: #fff;
+    background: var(--white-color);
     max-width: 1200px;
 }
 
@@ -273,7 +274,9 @@ header .header-inner nav ul li{
 
 
 .loanBreakDownDiv .profileTableDiv .profileTable-content{
-    width: 94%;
+    width: 100%;
+    padding: 0px 30px;
+    box-sizing: border-box;
 }
 
 .loanBreakDownDiv .profileTableDiv .profileTable-content table{
@@ -292,20 +295,22 @@ header .header-inner nav ul li{
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
     font-family: body-font;
-    padding: 12px 0px;
+    padding: 10px 10px;
+    white-space: nowrap;
 } 
 
 
 .loanBreakDownDiv .profileTableDiv .profileTable-content table tr td {
-    padding: 12px;
+    padding: 7px 12px;
     font-size: 16px;
     background: #f0efefec;
     font-family: body-font;
+    white-space: nowrap;
 } 
 
 .loanBreakDownDiv .profileTableDiv .profileTable-content table tr td img{
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border-radius: 5px;
 } 
 

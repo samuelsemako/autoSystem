@@ -21,6 +21,7 @@ function textField(options) {
 			  ${onKeyUpFunction ? `onkeyup="${onKeyUpFunction}"` : ''}
 			  ${readonly ? 'readonly' : ''}/>
           <div class="placeholder">${title}</div>
+          <div class="issueText" id="issue_${id}"></div>
         `;
     $('#' + id + '_container').html(template);
 }
@@ -50,6 +51,7 @@ function selectField(options) {
             ${emptyValue ? `<li onclick="_clickOption('searchList_${id}', '', '${emptyValue}');">${emptyValue}</li>` : ''}
         </ul>
     </div>
+    <div class="issueText" id="issue_${id}"></div>
     `;
     $('#' + id + '_container').html(template);
 }

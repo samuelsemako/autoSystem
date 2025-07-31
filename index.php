@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="form-div">
-                    <div>
+                    <div class="form-back-div">
                         <h1>Registration</h1>
                         <div class="text_field_container" id="fullName_container" title="Field for full name">
                             <script>
