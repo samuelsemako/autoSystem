@@ -1,15 +1,7 @@
-<?php
-require_once '../config/connection.php';
-///// check for API security
-if ($apiKey != $expectedApiKey) {
-    $response = [
-        'response' => 401,
-        'success' => false,
-        'message' => 'SECURITY ACCESS DENIED! You are not allowed to execute this command due to a security breach.'
-    ];
-    goto end;
-}
+<?php require_once '../config/connection.php' ?>
+<?php if (!$checkBasicSecurity) {goto end;}?>
 
+<?php
 $userId = $_GET['userId'] ?? '';
 
 if (empty($userId)) {
