@@ -10,7 +10,7 @@ if ($apiKey != $expectedApiKey) {
     goto end;
 }
 
-$userId = $_GET['userId'] ?? '';
+ ?? '';
 
 if (empty($userId)) {
     $response = [
@@ -20,7 +20,7 @@ if (empty($userId)) {
     goto end;
 }
 
-$query = mysqli_query($conn, "SELECT userId, fullName, emailAddress, phoneNumber, passport FROM user_tab WHERE userId = '$userId'");
+$query = mysqli_query($conn, "SELECT userId, fullName, emailAddress, phoneNumber, passport FROM user_tab ");
 
 if (mysqli_num_rows($query) == 0) {
     $response = [
@@ -30,13 +30,13 @@ if (mysqli_num_rows($query) == 0) {
     goto end;
 }
 
-$row = mysqli_fetch_assoc($query);
-
 $response = [
     'success' => true,
-    'data' => $row
 ];
 
+    $fetchQuery = mysqli_fetch_assoc($query);
+    $fetchQuery['documentStoragePath'] = "$documentStoragePath/user-pics";
+    $response['data'] = $fetchQuery;
 end:
 echo json_encode($response);
 ?>

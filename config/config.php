@@ -1,6 +1,6 @@
 <?php
 $appName="AutoSystem";
-$websiteUrl="http://localhost/all-projects/autosystem";
+$websiteUrl="http://localhost/all-projects/autoSystem";
 $codeVersion=date('Ymdhis');
 ?>
 

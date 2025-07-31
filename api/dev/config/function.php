@@ -14,14 +14,28 @@ class allClass
         $fetchQuery=mysqli_fetch_array($query);
         $userId=$fetchQuery['userId'];
         $fullName=$fetchQuery['fullName'];
-        $emailAddress=$fetchQuery['emailAddress'];
+        $email=$fetchQuery['emailAddress'];
         $phoneNumber=$fetchQuery['phoneNumber'];
         $passport=$fetchQuery['passport'];
         $createdTime=$fetchQuery['createdTime'];
         $updatedTime=$fetchQuery['updatedTime'];
-        return '[{"userId":"'.$userId.'","fullName":"'.$fullName.'","emailAddress":"'.$emailAddress.'","phoneNumber":"'.$phoneNumber.'","passport":"'.$passport.'","createdTime":"'.$createdTime.'","updatedTime":"'.$updatedTime.'"}]';
+        return '[{"userId":"'.$userId.'","fullName":"'.$fullName.'","emailAddress":"'.$email.'","phoneNumber":"'.$phoneNumber.'","passport":"'.$passport.'","createdTime":"'.$createdTime.'","updatedTime":"'.$updatedTime.'"}]';
 
     }
 } //end of class
 $callclass = new allClass();
+
+
+
+// Helper function for field validation
+function validateEmptyField($field, $fieldName) {
+    if (empty($field)) {
+        echo json_encode([
+            'response' => 400,
+            'success' => false,
+            'message' => "$fieldName REQUIRED! Check the fields and try again",
+        ]);
+     exit;
+    }
+}
 ?>

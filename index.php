@@ -25,7 +25,7 @@
                             </a>
 
                             <a href="#">
-                                <li onclick="_actionModal('open')">View Record</li>
+                                <li onclick="_viewRecords()">View Record</li>
                             </a>
                         </ul>
                     </nav>
@@ -34,28 +34,29 @@
 
             <div class="body-content">
                 <div class="search-button">
-                    <div class="text_field_container" id="select_container">
+                    <div class="text_field_container" id="searchUser_container">
                         <script>
                             selectField({
-                                id: 'select',
+                                id: 'searchUser',
                                 title: 'Select User'
                             });
+                            _getSelectUser('searchUser')
                         </script>
                     </div>
 
                     <div class="button-div">
-                        <button class="btn">
+                        <button class="btn" onclick="_fetchUser('userId')">
                             Fetch
                         </button>
 
-                        <button class="btn close-btn">
+                        <button class="btn close-btn" onclick="_deleteUser()">
                             Delete
                         </button>
                     </div>
                 </div>
 
                 <div class="form-div">
-                    <form>
+                    <div>
                         <h1>Registration</h1>
                         <div class="text_field_container" id="fullName_container" title="Field for full name">
                             <script>
@@ -85,26 +86,25 @@
                         </div>
 
                         <div class="button-div">
-                            <button class="btn" onclick="_registerUser()">Submit</button>
+                            <button class="btn" onclick="_submitUser()">Submit</button>
                             <button class="btn close-btn" onclick="_clearFunction()">Clear</button>
                         </div>
-                    </form>
+                    </div>
 
                     <div class="passport-div">
                         <h2>Passport</h2>
                         <label>
                             <div class="image-div">
-                                <img src="<?php echo $websiteUrl ?>/all-images/images/user.png" alt="Profile pics" id="userPixPreview" onclick="_selectPics()">
-                                <input type="file" id="passport" style="display:none" accept=".jpg, .jpeg, .png, .gif, .bmp, .tiff, .webp, .svg, .avif" onchange="userPixPreview.UpdatePreview(this);" />
+                                <img src="<?php echo $websiteUrl ?>/all-images/images/user.png" alt="Profile pics" id="userPixPreview">
+                                <input type="file" id="passport" style="display:none" accept=".jpg, .jpeg, .png, .gif, .bmp, .tiff, .webp, .svg, .avif" onchange="userPixPreview.UpdatePreview(this);" />
                             </div>
                         </label>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+<!-- /////all records Modals/////////////////////////////////////////////////////////////////// -->
     <div class="overlay" id='modal'>
         <div class="loanBreakDownDiv">
             <div class="title-div">
@@ -114,68 +114,15 @@
 
             <div class="profileTableDiv">
                 <div class="profileTable-content">
-                    <table id="loanBreakdown">
-                        <tr>
-                            <th>S/N</th>
-                            <th>Full Name</th>
-                            <th>Email Address</th>
-                            <th>Phone Number</th>
-                            <th>Passport</th>
-                        </tr>
-
-                        <tr>
-                            <td>1</td>
-                            <td>Emmanuel Samuel</td>
-                            <td>emmasams...</td>
-                            <td>09052397712</td>
-                            <td><img src="all-images/images/user.png" alt="profile-pics"></td>
-                        </tr>
-
-                        <tr>
-                            <td>2</td>
-                            <td>Emmanuel Samuel</td>
-                            <td>emmasams...</td>
-                            <td>09052397712</td>
-                            <td><img src="all-images/images/user.png" alt="profile-pics"></td>
-                        </tr>
-
-                        <tr>
-                            <td>3</td>
-                            <td>Emmanuel Samuel</td>
-                            <td>emmasams...</td>
-                            <td>09052397712</td>
-                            <td><img src="all-images/images/user.png" alt="profile-pics"></td>
-                        </tr>
-
-                        <tr>
-                            <td>4</td>
-                            <td>Emmanuel Samuel</td>
-                            <td>emmasams...</td>
-                            <td>09052397712</td>
-                            <td><img src="all-images/images/user.png" alt="profile-pics"></td>
-                        </tr>
-
-                        <tr>
-                            <td>5</td>
-                            <td>Emmanuel Samuel</td>
-                            <td>emmasams...</td>
-                            <td>09052397712</td>
-                            <td><img src="all-images/images/user.png" alt="profile-pics"></td>
-                        </tr>
-
-                        <tr>
-                            <td>6</td>
-                            <td>Emmanuel Samuel</td>
-                            <td>emmasams...</td>
-                            <td>09052397712</td>
-                            <td><img src="all-images/images/user.png" alt="profile-pics"></td>
-                        </tr>
-                    </table>
+                    <table id="usersRecord">
+                       
+                </table>
                 </div>
 
             </div>
         </div>
     </div>
+    <!-- //////////////////////////////////////////////////////////////////////////////////////// -->
 </body>
 
 </html>

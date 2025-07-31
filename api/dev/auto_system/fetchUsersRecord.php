@@ -1,19 +1,18 @@
-<?php
-require_once '../config/connection.php';
+<?php require_once '../config/connection.php' ?>
+<?php if (!$checkBasicSecurity) {goto end;}?>
 
-///// check for API security
-if ($apiKey != $expectedApiKey) {
-    $response = [
-        'response' => 401,
-        'success' => false,
-        'message' => 'SECURITY ACCESS DENIED! You are not allowed to execute this command due to a security breach.'
-    ];
-    goto end;
+
+
+<?php
+$userId = $_GET['userId'];
+if($userId!=''){
+    $userIds= "WHERE userId = '$userId'";
 }
 
-$query = mysqli_query($conn, "SELECT * FROM user_tab");
+$query = mysqli_query($conn, "SELECT userId, fullName, emailAddress, phoneNumber, passport, createdTime FROM user_tab $userIds");
+$queryCounts= mysqli_num_rows($query);
 
-if (mysqli_num_rows($query) == 0) {
+if ( $queryCounts == 0) {
     $response = [
         'success' => false,
         'message' => 'No users found'
@@ -21,16 +20,16 @@ if (mysqli_num_rows($query) == 0) {
     goto end;
 }
 
-$users = [];
-while ($row = mysqli_fetch_assoc($query)) {
-    $users[] = $row;
-}
-
 $response = [
     'success' => true,
-    'data' => $users
+    'message' => "User Fetched Succeful"
 ];
 
+$response['data']=array();
+while ($fetchQuery = mysqli_fetch_assoc($query)) {
+    $fetchQuery['documentStoragePath'] = "$documentStoragePath/user-pics";
+    $response['data'][]=$fetchQuery;
+}
 end:
 echo json_encode($response);
 ?>
