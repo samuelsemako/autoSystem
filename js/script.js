@@ -47,8 +47,9 @@ function _submitUser() {
   }
 
   if (!passport && !userId) {
-    $("#passport").addClass("issue");
-    _actionAlert("USER ERROR! Kindly upload a profile picture to continue", false);
+    $("#passportDiv").addClass("issue");
+    $('#issue_passport').html('USER ERROR! Input correct passport');
+			issueCount++;
   }
 
   if (issueCount>0){
@@ -81,9 +82,14 @@ function _submitUser() {
     headers: {
       apiKey: apiKey,
     },
+    
     success: function (info) {
       const success = info.success;
       const message = info.message;
+
+      const confirmMsg = userId ? "Are you sure you want to update this user?" : "Are you sure you want to save this new user?";
+      if (!confirm(confirmMsg)) return;
+
 
       if (success === true) {
         _actionAlert(message, true);
@@ -164,6 +170,12 @@ function _getSelectUser(fieldId) {
 
 function _fetchUser() {
   const userId = $("#searchUser").val();
+  if ( !userId){{
+     _actionAlert("Select user to continue", false);
+  }
+  }
+  else{
+
   $.ajax({
     type: "GET",
     url: endPoint + "/auto_system/fetchUsersRecord?userId=" + userId,
@@ -196,12 +208,14 @@ function _fetchUser() {
         false
       );
     },
-  });
+  })
+}
+  ;
 }
 
 function _deleteUser() {
   const userId = $("#searchUser").val();
-
+ 
   $.ajax({
     type: "GET",
     url: endPoint + "/auto_system/delete-user?userId=" + userId,
@@ -216,6 +230,10 @@ function _deleteUser() {
       if (success === true) {
         _clearFunction();
         _actionAlert(message, true);
+
+      const confirmMsg = "Are you sure you want to delete this user?";
+      if (!confirm(confirmMsg))return;
+
       } else {
         _actionAlert(message, false);
       }
@@ -286,8 +304,8 @@ function _clearFunction() {
   $('#searchUser').val(" ");
   $("#userPixPreview").attr("src", "all-images/images/user.png");
 
-  $('#fullName, #emailAddress, #phoneNumber, #passport').removeClass('issue');
-    $('#issue_fullName, #issue_emailAddress, #issue_phoneNumber, #issue_passport').html('');
+  $('#fullName, #emailAddress, #phoneNumber, #passport, #passportDiv').removeClass('issue');
+    $('#issue_fullName, #issue_emailAddress, #issue_phoneNumber').html('');
 }
 
 function _viewRecords(){

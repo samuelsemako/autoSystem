@@ -133,8 +133,8 @@ header .header-inner nav ul li{
 
 
 .body-content .form-div h1{
-    font-family: title-font;
     color: var(--primary-color); 
+    font-size: 22px;
 }
 
 .body-content .form-div .form-back-div{
@@ -197,27 +197,39 @@ header .header-inner nav ul li{
     width: 40%;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
 }
 
 .body-content .form-div .passport-div h2{
-    font-family: sub-title-font;
     color: var(--primary-color);
 }
 
-.body-content .form-div .passport-div .image-div{
+ .image-div{
     width: 100%;
     background: #ccc9c9d1;
     border: #a6a4a4a4 1px solid;
     border-radius: 7px;
     height: 220px;
-    padding: 20px;
+    overflow: hidden;
+    padding: 10px;
     box-sizing: border-box;
+}
+
+.body-content .form-div .passport-div .issue {
+	background: #fff;
+	border: #F00 1px solid;
 }
 
 .body-content .form-div .passport-div .image-div img{
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}
+
+label .issueText{
+    color: #ca0000;
+	font-size: 10px;
+	font-style: italic;
 }
 
 

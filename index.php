@@ -94,17 +94,18 @@
                     <div class="passport-div">
                         <h2>Passport</h2>
                         <label>
-                            <div class="image-div">
+                            <div class="image-div" id="passportDiv">
                                 <img src="<?php echo $websiteUrl ?>/all-images/images/user.png" alt="Profile pics" id="userPixPreview">
                                 <input type="file" id="passport" style="display:none" accept=".jpg, .jpeg, .png, .gif, .bmp, .tiff, .webp, .svg, .avif" onchange="userPixPreview.UpdatePreview(this);" />
                             </div>
+                            <div class="issueText" id="issue_passport"></div>
                         </label>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<!-- /////all records Modals/////////////////////////////////////////////////////////////////// -->
+    <!-- /////all records Modals/////////////////////////////////////////////////////////////////// -->
     <div class="overlay" id='modal'>
         <div class="loanBreakDownDiv">
             <div class="title-div">
@@ -115,8 +116,8 @@
             <div class="profileTableDiv">
                 <div class="profileTable-content">
                     <table id="usersRecord">
-                       
-                </table>
+
+                    </table>
                 </div>
 
             </div>
